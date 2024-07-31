@@ -1,22 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect } from "react";
+import Todos from "./components/Todos";
 
 function App() {
+  useEffect(() => {
+    fetch("http://localhost:5000/todos", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((r) => r)
+      .catch((e) => console.log(e));
+  }, []);
+
+  const todos = [
+    {
+      title: "1",
+      description: "d",
+      id: "id",
+      isDone: true,
+    },
+  ];
+
   return (
-    <div className="App">
+    <div>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Todos todos={todos} />
       </header>
     </div>
   );
