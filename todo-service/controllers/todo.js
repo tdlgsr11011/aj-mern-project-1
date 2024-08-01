@@ -20,7 +20,7 @@ const handleFetchTodos = async (req, res) => {
 const handleUpdateTodo = async (req, res) => {
   const id = req.params.id;
   const body = req.body;
-  const todos = await TODOS.updateOne(
+  await TODOS.updateOne(
     { _id: id },
     {
       $set: {
@@ -29,6 +29,7 @@ const handleUpdateTodo = async (req, res) => {
     }
   );
 
+  const todos = await TODOS.find({});
   return res.json(todos);
 };
 
