@@ -17,7 +17,24 @@ const handleFetchTodos = async (req, res) => {
   return res.json(todos);
 };
 
+const handleUpdateTodo = async (req, res) => {
+  const id = req.params.id;
+  const body = req.body;
+  console.log(body);
+  const todos = await TODOS.updateOne(
+    { _id: id },
+    {
+      $set: {
+        isDone: body.isDone,
+      },
+    }
+  );
+
+  return res.json(todos);
+};
+
 module.exports = {
   handleTodoCreation,
   handleFetchTodos,
+  handleUpdateTodo,
 };
