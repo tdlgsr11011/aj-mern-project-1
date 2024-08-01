@@ -9,7 +9,7 @@ const Todos = (props) => {
           todoTitle={todo.title}
           todoDescription={todo.description}
           isDone={todo.isDone}
-          key={todo.id}
+          key={todo._id}
         />
       ))}
     </ul>

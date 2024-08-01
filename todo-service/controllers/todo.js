@@ -14,9 +14,7 @@ const handleTodoCreation = async (req, res) => {
 
 const handleFetchTodos = async (req, res) => {
   const todos = await TODOS.find({});
-  return res.json({
-    todos: todos,
-  });
+  return res.json(todos);
 };
 
 module.exports = {
