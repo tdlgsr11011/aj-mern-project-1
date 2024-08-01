@@ -10,6 +10,7 @@ const Todos = (props) => {
           todoDescription={todo.description}
           isDone={todo.isDone}
           key={todo._id}
+          id={todo._id}
         />
       ))}
     </ul>
