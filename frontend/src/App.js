@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchTodos());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

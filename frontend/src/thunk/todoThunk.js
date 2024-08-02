@@ -10,7 +10,22 @@ export const fetchTodos = createAsyncThunk(
       },
     });
     const data = await response.json();
-    console.log(data);
+    return data;
+  }
+);
+
+export const updateTodos = createAsyncThunk(
+  "todos/updateTodos",
+  async (payload) => {
+    console.log(payload.body);
+    const response = await fetch(`http://localhost:5000/todos/${payload.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload.body),
+    });
+    const data = await response.json();
     return data;
   }
 );

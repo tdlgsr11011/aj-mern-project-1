@@ -1,28 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
+import { updateTodos } from "../thunk/todoThunk";
+import { useDispatch, useSelector } from "react-redux";
 
 const Todo = (props) => {
-  const toggleDone = async () => {
-    fetch(`http://localhost:5000/todos/${props.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: props.todoTitle,
-        description: props.todoDescription,
-        isDone: !props.isDone,
-      }),
-    })
-      .then((r) => r.json())
-      .then((r) => r)
-      .catch((e) => console.log(e));
-  };
+  const loading = useSelector((state) => state.todoState.status === "loading");
+  const dispatch = useDispatch();
+  const toggleDone = (id, body) => dispatch(updateTodos({ id, body }));
 
   return (
     <li>
-      <div>{props.todoTitle}</div>
-      <div>{props.todoDescription}</div>
-      <button onClick={toggleDone}>
+      <div>{props.title}</div>
+      <div>{props.description}</div>
+      <button
+        onClick={() =>
+          toggleDone(props.id, {
+            title: props.title,
+            description: props.description,
+            isDone: !props.isDone,
+          })
+        }
+        disabled={loading}
+      >
         {props.isDone ? "Mark Undone" : "Mark Done"}
       </button>
     </li>

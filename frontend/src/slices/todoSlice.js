@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTodos } from "../thunk/todoThunk";
+import { fetchTodos, updateTodos } from "../thunk/todoThunk";
 
 const todoSlice = createSlice({
   name: "todo",
@@ -22,6 +22,17 @@ const todoSlice = createSlice({
         state.todos = action.payload;
       })
       .addCase(fetchTodos.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(updateTodos.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(updateTodos.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.todos = action.payload;
+      })
+      .addCase(updateTodos.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });
