@@ -1,26 +1,22 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import "./App.css";
-import { useEffect, useState } from "react";
 import Todos from "./components/Todos";
+import { fetchTodos } from "./thunk/todoThunk";
 
 function App() {
-  const [myTodos, setMyTodos] = useState([]);
+  const todos = useSelector((state) => state.todoState.todos);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch("http://localhost:5000/todos", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((r) => r.json())
-      .then((data) => setMyTodos(data))
-      .catch((e) => console.log(e));
+    dispatch(fetchTodos());
   }, []);
 
   return (
     <div>
       <header className="App-header">
-        <Todos todos={myTodos} />
+        <Todos todos={todos} />
       </header>
     </div>
   );
