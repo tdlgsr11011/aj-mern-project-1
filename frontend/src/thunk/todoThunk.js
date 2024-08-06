@@ -17,7 +17,6 @@ export const fetchTodos = createAsyncThunk(
 export const updateTodos = createAsyncThunk(
   "todos/updateTodos",
   async (payload) => {
-    console.log(payload.body);
     const response = await fetch(`http://localhost:5000/todos/${payload.id}`, {
       method: "PUT",
       headers: {
