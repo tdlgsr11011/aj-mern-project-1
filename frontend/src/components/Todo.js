@@ -5,7 +5,8 @@ import styles from "./Todo.module.css";
 import { updateTodos } from "../thunk/todoThunk";
 
 const Todo = (props) => {
-  const loading = useSelector((state) => state.todoState.status === "loading");
+  const status = useSelector((state) => state.todoState.status);
+  const loading = status === "loading";
   const dispatch = useDispatch();
   const toggleDone = () =>
     dispatch(
