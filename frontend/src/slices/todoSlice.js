@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchTodos, updateTodos } from "../thunk/todoThunk";
 
 const todoSlice = createSlice({
-  name: "todo",
+  name: "todoSlice",
 
   initialState: {
     todos: [],

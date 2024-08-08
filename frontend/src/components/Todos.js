@@ -1,9 +1,10 @@
 import React from "react";
 import Todo from "./Todo";
+import styles from "./Todos.module.css";
 
 const Todos = (props) => {
   return (
-    <ul>
+    <ul className={styles.Todos}>
       {props.todos.map((todo) => (
         <Todo
           title={todo.title}
