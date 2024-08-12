@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Todos from "./components/Todos/Todos";
 import TodoHeader from "./components/TodoHeader/TodoHeader";
 import { fetchTodos } from "./thunk/todoThunk";
+import CreateTodoModal from "./components/Modals/CreateTodoModal/CreateTodoModal";
 
 function App() {
   const todos = useSelector((state) => state.todoState.todos);
@@ -20,8 +21,9 @@ function App() {
   return (
     <div>
       <header className="App-header">
-        <TodoHeader />
+        <TodoHeader openModal={openModal} />
         <Todos todos={todos} />
+        {showModal ? <CreateTodoModal closeModal={closeModal} /> : null}
       </header>
     </div>
   );
