@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./Todo.module.css";
-import { updateTodos } from "../thunk/todoThunk";
+import { updateTodos } from "../../thunk/todoThunk";
 
 const Todo = (props) => {
   const status = useSelector((state) => state.todoState.status);

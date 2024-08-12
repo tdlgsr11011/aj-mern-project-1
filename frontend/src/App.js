@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Todos from "./components/Todos";
-import TodoHeader from "./components/TodoHeader";
+import Todos from "./components/Todos/Todos";
+import TodoHeader from "./components/TodoHeader/TodoHeader";
 import { fetchTodos } from "./thunk/todoThunk";
 
 function App() {
