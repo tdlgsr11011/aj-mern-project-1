@@ -2,6 +2,7 @@ const { TODOS } = require("../models/todo");
 
 const handleTodoCreation = async (req, res) => {
   const body = req.body;
+  console.log(body);
 
   await TODOS.create({
     title: body.title,
@@ -9,7 +10,8 @@ const handleTodoCreation = async (req, res) => {
     isDone: false,
   });
 
-  return res.end("TODO created");
+  const todos = await TODOS.find({});
+  return res.json(todos);
 };
 
 const handleFetchTodos = async (req, res) => {
