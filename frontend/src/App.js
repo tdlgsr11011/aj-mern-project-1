@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Todos from "./components/Todos";
+import TodoHeader from "./components/TodoHeader";
 import { fetchTodos } from "./thunk/todoThunk";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   return (
     <div>
       <header className="App-header">
+        <TodoHeader />
         <Todos todos={todos} />
       </header>
     </div>
