@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTodos, updateTodos, createTodo } from "../thunk/todoThunk";
+import {
+  fetchTodos,
+  updateTodos,
+  createTodo,
+  deleteTodo,
+} from "../thunk/todoThunk";
 
 const todoSlice = createSlice({
   name: "todoSlice",
@@ -36,7 +41,7 @@ const todoSlice = createSlice({
         state.status = "failed";
         state.error = action.error.message;
       })
-      .addCase(createTodo.pending, (state, action) => {
+      .addCase(createTodo.pending, (state) => {
         state.status = "loading";
       })
       .addCase(createTodo.fulfilled, (state, action) => {
@@ -44,6 +49,17 @@ const todoSlice = createSlice({
         state.todos = action.payload;
       })
       .addCase(createTodo.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(deleteTodo.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(deleteTodo.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.todos = action.payload;
+      })
+      .addCase(deleteTodo.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
       });

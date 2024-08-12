@@ -44,3 +44,18 @@ export const createTodo = createAsyncThunk(
     return data;
   }
 );
+
+export const deleteTodo = createAsyncThunk(
+  "todos/deleteTodo",
+  async (payload) => {
+    const response = await fetch(`http://localhost:5000/todos/${payload.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+    return data;
+  }
+);
