@@ -2,7 +2,6 @@ const { TODOS } = require("../models/todo");
 
 const handleTodoCreation = async (req, res) => {
   const body = req.body;
-  console.log(body);
 
   await TODOS.create({
     title: body.title,
