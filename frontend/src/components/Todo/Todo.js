@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./Todo.module.css";
-import { updateTodos } from "../../thunk/todoThunk";
+import { updateTodos, deleteTodo } from "../../thunk/todoThunk";
 
 const Todo = (props) => {
   const status = useSelector((state) => state.todoState.status);
@@ -20,6 +20,10 @@ const Todo = (props) => {
       })
     );
 
+  const handleDelete = () => {
+    dispatch(deleteTodo({ id: props.id }));
+  };
+
   return (
     <li className={styles.Todo}>
       <div>{props.title}</div>
@@ -27,6 +31,7 @@ const Todo = (props) => {
       <button onClick={toggleDone} disabled={loading}>
         {props.isDone ? "Mark Undone" : "Mark Done"}
       </button>
+      <button onClick={handleDelete}>Delete</button>
     </li>
   );
 };
