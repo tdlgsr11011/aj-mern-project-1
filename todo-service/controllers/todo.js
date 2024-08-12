@@ -35,8 +35,16 @@ const handleUpdateTodo = async (req, res) => {
   return res.json(todos);
 };
 
+const handleDeleteTodo = async (req, res) => {
+  const id = req.params.id;
+  await TODOS.deleteOne({ _id: id });
+  const todos = await TODOS.find({});
+  return res.json(todos);
+};
+
 module.exports = {
   handleTodoCreation,
   handleFetchTodos,
   handleUpdateTodo,
+  handleDeleteTodo,
 };
