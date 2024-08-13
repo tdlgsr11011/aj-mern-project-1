@@ -1,12 +1,12 @@
 @import "../css_variables";
 
-.small {
+.default {
   padding: $padding-small-button;
   border-radius: $unit-1;
   font-size: $unit-1;
 }
 
-.default {
+.large {
   padding: $padding-default-button;
   border-radius: $unit-2;
   font-size: $unit-1;

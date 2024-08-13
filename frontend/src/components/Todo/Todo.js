@@ -30,7 +30,7 @@ const Todo = (props) => {
       <div className={styles.TodoTitle}>{props.title}</div>
       <div className={styles.TodoDescription}>{props.description}</div>
       <button
-        className={`${styles.TodoToggle} ${buttonStyles.small}`}
+        className={`${styles.TodoToggle} ${buttonStyles.default}`}
         onClick={toggleDone}
         disabled={loading}
       >

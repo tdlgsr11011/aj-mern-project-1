@@ -9,7 +9,7 @@ const TodoHeader = (props) => {
       <h1>Todo App</h1>
       <button
         onClick={props.openModal}
-        className={`${styles.CreateTodoButton} ${buttonStyles.default}`}
+        className={`${styles.CreateTodoButton} ${buttonStyles.large}`}
       >
         Create Todo
       </button>
