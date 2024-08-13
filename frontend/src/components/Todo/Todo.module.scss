@@ -5,7 +5,7 @@
   justify-content: space-around;
   align-items: center;
   width: 50%;
-  background-color: $white;
+  background-color: $color-white;
 
   color: $grey;
 
@@ -28,7 +28,7 @@
 }
 
 .TodoToggle {
-  background-color: $white;
+  background-color: $color-white;
   color: $blue;
 
   margin-right: $unit-1;
@@ -38,7 +38,7 @@
   &:hover {
     transition: ease-in-out 100ms;
     background-color: $blue;
-    color: $white;
+    color: $color-white;
     border: $no-border;
     cursor: pointer;
   }
@@ -46,13 +46,13 @@
 
 .TodoDelete {
   flex-basis: 10%;
-  background-color: $white;
+  background-color: $color-white;
   color: $red;
   border: $border-300;
   &:hover {
     transition: ease-in-out 100ms;
     background-color: $red;
-    color: $white;
+    color: $color-white;
     border: $no-border;
     cursor: pointer;
   }
