@@ -15,7 +15,11 @@ const todoSlice = createSlice({
     error: null,
   },
 
-  reducers: {},
+  reducers: {
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+  },
 
   extraReducers: (builder) => {
     builder
@@ -72,4 +76,5 @@ const todoSlice = createSlice({
   },
 });
 
+export const { setError } = todoSlice.actions;
 export default todoSlice.reducer;

@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import CreateTodoModal from "./components/Modals/CreateTodoModal/CreateTodoModal";
 import Todos from "./components/Todos/Todos";
 import TodoHeader from "./components/TodoHeader/TodoHeader";
+import { setError } from "./slices/todoSlice";
 import { fetchTodos } from "./thunk/todoThunk";
-import CreateTodoModal from "./components/Modals/CreateTodoModal/CreateTodoModal";
 
 function App() {
   const todos = useSelector((state) => state.todoState.todos);
+  const error = useSelector((state) => state.todoState.error);
+
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
@@ -17,6 +20,11 @@ function App() {
   useEffect(() => {
     dispatch(fetchTodos());
   }, [dispatch]);
+
+  if (error != null) {
+    alert(error);
+    dispatch(setError(null));
+  }
 
   return (
     <div>
