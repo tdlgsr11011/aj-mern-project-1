@@ -1,7 +1,9 @@
+@import "../../styles/colours";
+
 .TodoHeader {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-bottom: 16px;
-  background-color: var(--red);
+  background-color: $yellow;
 }
