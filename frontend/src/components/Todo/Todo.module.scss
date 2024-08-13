@@ -5,6 +5,7 @@
   justify-content: space-around;
   align-items: center;
   width: 50%;
+  background-color: $white;
 
   color: $grey;
 
@@ -31,8 +32,10 @@
 
   border: $border-300;
   &:hover {
+    transition: ease-in-out 100ms;
     background-color: $blue;
     color: $white;
+    cursor: pointer;
   }
 }
 
@@ -42,7 +45,9 @@
   color: $red;
   border: $border-300;
   &:hover {
+    transition: ease-in-out 100ms;
     background-color: $red;
     color: $white;
+    cursor: pointer;
   }
 }

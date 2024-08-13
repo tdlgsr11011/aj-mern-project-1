@@ -12,10 +12,11 @@
 .CreateTodoButton {
   color: $white;
   background-color: $blue;
-
   border: $no-border;
 }
 
 .CreateTodoButton:hover {
+  transition: ease-in-out 100ms;
   background-color: $blue-hover;
+  cursor: pointer;
 }
