@@ -23,13 +23,12 @@
 }
 
 .TodoToggle {
-  
   background-color: $white;
   color: $blue;
-  
+
   margin-right: $unit-1;
   flex-basis: 20%;
-  
+
   border: $border-300;
   &:hover {
     background-color: $blue;
@@ -39,5 +38,11 @@
 
 .TodoDelete {
   flex-basis: 10%;
-  border: $no-border;
+  background-color: $white;
+  color: $red;
+  border: $border-300;
+  &:hover {
+    background-color: $red;
+    color: $white;
+  }
 }
