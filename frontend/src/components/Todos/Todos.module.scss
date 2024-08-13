@@ -1,6 +1,10 @@
 @import "../../css_variables";
 
 .Todos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
   margin: $unit-1;
   padding: $padding-none;
 }

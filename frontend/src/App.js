@@ -22,9 +22,9 @@ function App() {
     <div>
       <header className="App-header">
         <TodoHeader openModal={openModal} />
-        <Todos todos={todos} />
-        {showModal ? <CreateTodoModal closeModal={closeModal} /> : null}
       </header>
+      {showModal ? <CreateTodoModal closeModal={closeModal} /> : null}
+      <Todos todos={todos} />
     </div>
   );
 }

@@ -26,12 +26,18 @@ const Todo = (props) => {
 
   return (
     <li className={styles.Todo}>
-      <div>{props.title}</div>
-      <div>{props.description}</div>
-      <button onClick={toggleDone} disabled={loading}>
+      <div className={styles.TodoTitle}>{props.title}</div>
+      <div className={styles.TodoDescription}>{props.description}</div>
+      <button
+        className={styles.TodoToggle}
+        onClick={toggleDone}
+        disabled={loading}
+      >
         {props.isDone ? "Mark Undone" : "Mark Done"}
       </button>
-      <button onClick={handleDelete}>Delete</button>
+      <button className={styles.TodoDelete} onClick={handleDelete}>
+        Delete
+      </button>
     </li>
   );
 };
