@@ -12,14 +12,9 @@
 .CreateTodoButton {
   color: $white;
   background-color: $blue;
-
-  padding-top: $unit-half;
-  padding-bottom: $unit-half;
-  padding-left: $unit-1;
-  padding-right: $unit-1;
-
+  padding: $padding-default-button;
   border-radius: $unit-1;
-  border: 0px;
+  border: $no-border;
 }
 
 .CreateTodoButton:hover {
