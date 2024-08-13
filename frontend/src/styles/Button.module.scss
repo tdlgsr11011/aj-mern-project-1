@@ -30,3 +30,17 @@
     cursor: pointer;
   }
 }
+
+.destructiveInverse {
+  color: $red;
+  background-color: $color-white;
+  border: $border-300;
+
+  &:hover {
+    transition: ease-in-out 100ms;
+    background-color: $red;
+    color: $color-white;
+    border: 2px solid $red;
+    cursor: pointer;
+  }
+}
