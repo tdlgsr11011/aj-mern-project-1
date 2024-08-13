@@ -24,7 +24,7 @@ const todoSlice = createSlice({
       })
       .addCase(fetchTodos.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.todos = action.payload;
+        state.todos = action.payload.todos;
       })
       .addCase(fetchTodos.rejected, (state, action) => {
         state.status = "failed";
@@ -35,7 +35,7 @@ const todoSlice = createSlice({
       })
       .addCase(updateTodos.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.todos = action.payload;
+        state.todos = action.payload.todos.todos;
       })
       .addCase(updateTodos.rejected, (state, action) => {
         state.status = "failed";
@@ -45,8 +45,14 @@ const todoSlice = createSlice({
         state.status = "loading";
       })
       .addCase(createTodo.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.todos = action.payload;
+        const { todos, error } = action.payload;
+        if (error) {
+          state.status = "failed";
+          state.error = error.message;
+        } else {
+          state.status = "succeeded";
+          state.todos = todos;
+        }
       })
       .addCase(createTodo.rejected, (state, action) => {
         state.status = "failed";
@@ -57,7 +63,7 @@ const todoSlice = createSlice({
       })
       .addCase(deleteTodo.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.todos = action.payload;
+        state.todos = action.payload.todos;
       })
       .addCase(deleteTodo.rejected, (state, action) => {
         state.status = "failed";

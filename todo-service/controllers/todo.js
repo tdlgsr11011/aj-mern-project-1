@@ -2,6 +2,15 @@ const { TODOS } = require("../models/todo");
 
 const handleTodoCreation = async (req, res) => {
   const body = req.body;
+  let todos = await TODOS.find({});
+  console.log(todos.length);
+  if (todos.length == 10) {
+    return res.status(400).json({
+      error: {
+        message: "There are already 10 items present, try deleting some items.",
+      },
+    });
+  }
 
   await TODOS.create({
     title: body.title,
@@ -9,13 +18,13 @@ const handleTodoCreation = async (req, res) => {
     isDone: false,
   });
 
-  const todos = await TODOS.find({});
-  return res.json(todos);
+  todos = await TODOS.find({});
+  return res.json({ todos: todos });
 };
 
 const handleFetchTodos = async (req, res) => {
   const todos = await TODOS.find({});
-  return res.json(todos);
+  return res.json({ todos: todos });
 };
 
 const handleUpdateTodo = async (req, res) => {
@@ -31,14 +40,14 @@ const handleUpdateTodo = async (req, res) => {
   );
 
   const todos = await TODOS.find({});
-  return res.json(todos);
+  return res.json({ todos: todos });
 };
 
 const handleDeleteTodo = async (req, res) => {
   const id = req.params.id;
   await TODOS.deleteOne({ _id: id });
   const todos = await TODOS.find({});
-  return res.json(todos);
+  return res.json({ todos: todos });
 };
 
 module.exports = {
