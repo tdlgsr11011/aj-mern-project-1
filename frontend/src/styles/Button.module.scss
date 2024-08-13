@@ -1,13 +1,19 @@
 @import "../css_variables";
 
 .default {
-  padding: $padding-small-button;
+  padding: $padding-default-button;
   border-radius: $unit-1;
   font-size: $unit-1;
 }
 
 .large {
-  padding: $padding-default-button;
+  padding: $padding-large-button;
   border-radius: $unit-2;
   font-size: $unit-1;
+}
+
+.small {
+  padding: $padding-small-button;
+  border-radius: $unit-1;
+  font-size: 14px;
 }
