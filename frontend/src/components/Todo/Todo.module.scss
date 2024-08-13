@@ -6,6 +6,10 @@
   align-items: center;
   width: 50%;
 
+  color: $grey;
+
+  border-radius: $unit-quarter;
+  box-shadow: $box-shadow-default;
   padding: $unit-half $unit-2;
   margin-bottom: $unit-1;
 }
