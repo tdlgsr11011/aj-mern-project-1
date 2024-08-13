@@ -2,7 +2,7 @@
 
 .default {
   padding: $padding-default-button;
-  border-radius: $unit-1;
+  border-radius: $unit-2;
   font-size: $unit-1;
 }
 
@@ -16,4 +16,17 @@
   padding: $padding-small-button;
   border-radius: $unit-1;
   font-size: 14px;
+}
+
+.primary {
+  color: $color-white;
+  background-color: $blue;
+  border: $no-border;
+  box-shadow: $box-shadow-default;
+
+  &:hover {
+    transition: ease-in-out 100ms;
+    background-color: $blue-hover;
+    cursor: pointer;
+  }
 }

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
 import styles from "./CreateTodoModal.module.scss";
+import buttonStyles from "../../../styles/Button.module.scss";
 
 import { createTodo } from "../../../reducer/thunk/todoThunk";
 
@@ -17,24 +18,33 @@ const CreateTodoModal = (props) => {
 
   return (
     <div className={styles.ModalOverlay}>
-      <div className={styles.ModalContent}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.ModalContent}>
         <div>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-              defaultValue="My Todo"
-              {...register("title", { required: true })}
-            />
-            <input
-              defaultValue="Todo Description"
-              {...register("description")}
-            />
-            <div>
-              <button type="submit">Create</button>
-              <button onClick={props.closeModal}>Cancel</button>
-            </div>
-          </form>
+          <label htmlFor="todoTitle">Title</label>
+          <input
+            id="todoTitle"
+            defaultValue="My Todo"
+            {...register("title", { required: true })}
+          />
+          <label htmlFor="todoDescription">Description</label>
+          <input
+            defaultValue="Todo Description"
+            id="todoDescription"
+            {...register("description")}
+          />
         </div>
-      </div>
+        <div>
+          <button
+            type="submit"
+            className={`${buttonStyles.default} ${buttonStyles.primary}`}
+          >
+            Create
+          </button>
+          <button onClick={props.closeModal} className={buttonStyles.small}>
+            Cancel
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

@@ -8,15 +8,3 @@
   padding-bottom: $unit-1;
   background-color: $yellow;
 }
-
-.CreateTodoButton {
-  color: $color-white;
-  background-color: $blue;
-  border: $no-border;
-}
-
-.CreateTodoButton:hover {
-  transition: ease-in-out 100ms;
-  background-color: $blue-hover;
-  cursor: pointer;
-}
