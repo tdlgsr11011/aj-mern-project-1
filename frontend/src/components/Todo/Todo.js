@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import styles from "./Todo.module.css";
+import styles from "./Todo.module.scss";
 import { updateTodos, deleteTodo } from "../../thunk/todoThunk";
 
 const Todo = (props) => {

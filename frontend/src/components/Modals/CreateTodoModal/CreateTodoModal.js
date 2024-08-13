@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
-import styles from "./CreateTodoModal.module.css";
+import styles from "./CreateTodoModal.module.scss";
 
 import { createTodo } from "../../../thunk/todoThunk";
 
