@@ -13,6 +13,10 @@
   box-shadow: $box-shadow-default;
   padding: $unit-half $unit-2;
   margin-bottom: $unit-1;
+
+  &:hover {
+    background-color: rgb(234, 234, 234);
+  }
 }
 
 .TodoTitle {
@@ -35,6 +39,7 @@
     transition: ease-in-out 100ms;
     background-color: $blue;
     color: $white;
+    border: $no-border;
     cursor: pointer;
   }
 }
@@ -48,6 +53,7 @@
     transition: ease-in-out 100ms;
     background-color: $red;
     color: $white;
+    border: $no-border;
     cursor: pointer;
   }
 }
