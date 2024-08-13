@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./Todo.module.scss";
+import buttonStyles from "../../styles/Button.module.scss";
 import { updateTodos, deleteTodo } from "../../thunk/todoThunk";
 
 const Todo = (props) => {
@@ -29,7 +30,7 @@ const Todo = (props) => {
       <div className={styles.TodoTitle}>{props.title}</div>
       <div className={styles.TodoDescription}>{props.description}</div>
       <button
-        className={styles.TodoToggle}
+        className={`${styles.TodoToggle} ${buttonStyles.small}`}
         onClick={toggleDone}
         disabled={loading}
       >
