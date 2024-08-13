@@ -11,7 +11,7 @@ function App() {
   const todos = useSelector((state) => state.todoState.todos);
   const error = useSelector((state) => state.todoState.error);
 
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
   const openModal = () => setShowModal(true);

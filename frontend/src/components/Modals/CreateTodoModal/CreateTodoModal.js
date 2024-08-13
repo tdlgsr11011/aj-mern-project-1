@@ -42,7 +42,7 @@ const CreateTodoModal = (props) => {
           </button>
           <button
             onClick={props.closeModal}
-            className={`${buttonStyles.default} ${buttonStyles.destructiveInverse}`}
+            className={`${buttonStyles.default} ${buttonStyles.destructiveInverse} ${styles.Cancel}`}
           >
             Cancel
           </button>
