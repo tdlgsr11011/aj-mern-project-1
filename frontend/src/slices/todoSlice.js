@@ -35,7 +35,7 @@ const todoSlice = createSlice({
       })
       .addCase(updateTodos.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.todos = action.payload.todos.todos;
+        state.todos = action.payload.todos;
       })
       .addCase(updateTodos.rejected, (state, action) => {
         state.status = "failed";
