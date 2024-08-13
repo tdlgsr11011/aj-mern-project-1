@@ -1,4 +1,6 @@
+@import "../../css_variables";
+
 .Todos {
-    padding: 0;
-    margin: 0px;
+  margin: $unit-1;
+  padding: $padding-none;
 }
