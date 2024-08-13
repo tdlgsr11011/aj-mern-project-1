@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import CreateTodoModal from "./components/Modals/CreateTodoModal/CreateTodoModal";
 import Todos from "./components/Todos/Todos";
 import TodoHeader from "./components/TodoHeader/TodoHeader";
-import { setError } from "./slices/todoSlice";
-import { fetchTodos } from "./thunk/todoThunk";
+import { setError } from "./reducer/slices/todoSlice";
+import { fetchTodos } from "./reducer/thunk/todoThunk";
 
 function App() {
   const todos = useSelector((state) => state.todoState.todos);

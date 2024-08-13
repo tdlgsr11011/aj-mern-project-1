@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import styles from "./CreateTodoModal.module.scss";
 
-import { createTodo } from "../../../thunk/todoThunk";
+import { createTodo } from "../../../reducer/thunk/todoThunk";
 
 const CreateTodoModal = (props) => {
   const { register, handleSubmit } = useForm();

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./Todo.module.scss";
 import buttonStyles from "../../styles/Button.module.scss";
-import { updateTodos, deleteTodo } from "../../thunk/todoThunk";
+import { updateTodos, deleteTodo } from "../../reducer/thunk/todoThunk";
 
 const Todo = (props) => {
   const status = useSelector((state) => state.todoState.status);
