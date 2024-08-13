@@ -29,7 +29,8 @@
   
   margin-right: $unit-1;
   flex-basis: 20%;
-
+  
+  border: $border-300;
   &:hover {
     background-color: $blue;
     color: $white;
