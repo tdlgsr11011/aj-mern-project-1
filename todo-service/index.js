@@ -1,6 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 const { config } = require("dotenv");
+const path = require("path");
 
 const { connectDB } = require("./database");
 const { todosRouter } = require("./routes/todo");
@@ -30,6 +31,13 @@ app.use(express.json());
 app.get("/", (req, res) => res.redirect("/todos"));
 
 app.use("/todos", todosRouter);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("../frontend/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../frontend", "build", "index.html"));
+  });
+}
 
 app.listen(process.env.PORT, () => {
   console.log("service started on port ", process.env.PORT);
