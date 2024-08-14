@@ -35,6 +35,7 @@
   color: $red;
   background-color: $color-white;
   border: $border-300;
+  box-shadow: $box-shadow-default;
 
   &:hover {
     transition: ease-in-out 100ms;
