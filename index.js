@@ -24,7 +24,10 @@ connectDB(process.env.DB_URL)
     console.log(e);
   });
 
-app.use(cors(corsOptions));
+if (process.env.NODE_ENV == "development") {
+  app.use(cors(corsOptions));
+}
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
