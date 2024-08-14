@@ -3,7 +3,6 @@ const { TODOS } = require("../models/todo");
 const handleTodoCreation = async (req, res) => {
   const body = req.body;
   let todos = await TODOS.find({});
-  console.log(todos.length);
   if (todos.length == 10) {
     return res.status(400).json({
       error: {
