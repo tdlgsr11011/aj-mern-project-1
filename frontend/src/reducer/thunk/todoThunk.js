@@ -1,9 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 export const fetchTodos = createAsyncThunk(
   "todos/fetchTodos",
   async () => {
-    const response = await fetch("http://localhost:5000/todos", {
+    const response = await fetch(`${baseUrl}/todos`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -17,7 +19,7 @@ export const fetchTodos = createAsyncThunk(
 export const updateTodos = createAsyncThunk(
   "todos/updateTodos",
   async (payload) => {
-    const response = await fetch(`http://localhost:5000/todos/${payload.id}`, {
+    const response = await fetch(`${baseUrl}/todos/${payload.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +34,7 @@ export const updateTodos = createAsyncThunk(
 export const createTodo = createAsyncThunk(
   "todos/createTodo",
   async (payload) => {
-    const response = await fetch("http://localhost:5000/todos", {
+    const response = await fetch(`${baseUrl}/todos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +50,7 @@ export const createTodo = createAsyncThunk(
 export const deleteTodo = createAsyncThunk(
   "todos/deleteTodo",
   async (payload) => {
-    const response = await fetch(`http://localhost:5000/todos/${payload.id}`, {
+    const response = await fetch(`${baseUrl}/todos/${payload.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
