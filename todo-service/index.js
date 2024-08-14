@@ -19,7 +19,8 @@ connectDB(process.env.DB_URL)
     console.log("DB connected");
   })
   .catch((e) => {
-    console.log("Error while conneting DB");
+    console.log("Error while connecting to mongoDB");
+    console.log(e);
   });
 
 app.use(cors(corsOptions));
